@@ -1,0 +1,21 @@
+#!/bin/sh
+
+CMDNAME=`basename $0`
+
+while getopts s:n: OPT
+do
+  case $OPT in
+    "s" ) FLG_MARK=True ; MARK="$OPTARG" ;;
+    "n" ) FLG_NUM=True ; NUM="$OPTARG" ;;
+      * ) echo "Usage: $CMDNAME [-s SYMBOL] [-n NUM]" 1>&2
+          exit 1 ;;
+  esac
+done
+
+if [ ${FLG_MARK} ] && [ ${FLG_NUM} ]; then
+  cat /dev/urandom | LC_CTYPE=C tr -dc "[:alnum:]${MARK}" | fold -w ${NUM} | grep -e "[a-z]" | grep -e "[A-Z]"| grep -e "[${MARK}]" | head -n 1
+else
+  echo "Usage: $CMDNAME [-s SYMBOL] [-n NUM]" 1>&2
+  exit 1
+fi
+
