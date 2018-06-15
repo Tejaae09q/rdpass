@@ -13,10 +13,10 @@ do
   esac
 done
 
-if [ ${FLG_NUM} ]; then
-  cat /dev/urandom | LC_CTYPE=C tr -dc "[:alnum:]${MARK}" | fold -w ${NUM} | grep -e "[a-z]" | grep -e "[A-Z]" | head -n 1 
-elif [ ${FLG_MARK} ] && [ ${FLG_NUM} ]; then
+if [ ${FLG_MARK} ] && [ ${FLG_NUM} ]; then
   cat /dev/urandom | LC_CTYPE=C tr -dc "[:alnum:]${MARK}" | fold -w ${NUM} | grep -e "[a-z]" | grep -e "[A-Z]" | grep -e "[${MARK}]" | head -n 1
+elif [ ${FLG_NUM} ]; then
+  cat /dev/urandom | LC_CTYPE=C tr -dc "[:alnum:]${MARK}" | fold -w ${NUM} | grep -e "[a-z]" | grep -e "[A-Z]" | head -n 1 
 else
   echo "Usage: $CMDNAME [-s SYMBOL] [-n NUM]" 1>&2
   exit 1
