@@ -3,6 +3,7 @@
 Install
 ```
 git clone https://github.com/Jyozi/rdpass.git
+chmod 755 rdpass/rdpass
 mv rdpass/rdpass /usr/local/bin/rdpass
 ```
 
