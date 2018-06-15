@@ -9,7 +9,7 @@ mv rdpass/rdpass /usr/local/bin/rdpass
 
 Usage
 ```
-rdpass [-s Accept symbol] [-n Number of password]
+rdpass [-n Number of password] (option:[-s Accept symbol])
 ```
 
 Example
