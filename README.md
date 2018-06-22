@@ -15,6 +15,6 @@ rdpass [-n Number of password] (option:[-s Accept symbol])
 
 Example
 ```
-# rdpass -s + -n 16
+# rdpass -n 16 -s '+'
 x+JAtTu3hCpMu01W
 ```
